@@ -36,7 +36,7 @@ public class FormCaixa extends javax.swing.JFrame {
         assento6 = new javax.swing.JButton();
         assento7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        assento9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -100,7 +100,7 @@ public class FormCaixa extends javax.swing.JFrame {
 
         jButton8.setText("8");
 
-        jButton9.setText("jButton9");
+        assento9.setText("9");
 
         jButton10.setText("jButton10");
 
@@ -190,7 +190,7 @@ public class FormCaixa extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(assento2)
-                            .addComponent(jButton9)
+                            .addComponent(assento9)
                             .addComponent(jButton16)
                             .addComponent(jButton23)
                             .addComponent(jButton30)
@@ -271,7 +271,7 @@ public class FormCaixa extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
-                    .addComponent(jButton9)
+                    .addComponent(assento9)
                     .addComponent(jButton10)
                     .addComponent(jButton11)
                     .addComponent(jButton12)
@@ -371,6 +371,7 @@ public class FormCaixa extends javax.swing.JFrame {
     private javax.swing.JButton assento5;
     private javax.swing.JButton assento6;
     private javax.swing.JButton assento7;
+    private javax.swing.JButton assento9;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -407,7 +408,6 @@ public class FormCaixa extends javax.swing.JFrame {
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel labelAssentos;
     // End of variables declaration//GEN-END:variables
 }

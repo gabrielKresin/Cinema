@@ -40,7 +40,7 @@
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="assento2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                          <Component id="assento9" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton16" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton23" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton30" min="-2" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="assento9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -246,9 +246,9 @@
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="assento9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton9"/>
+        <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton10">
