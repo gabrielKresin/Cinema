@@ -39,12 +39,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="assento2" min="-2" max="-2" attributes="0"/>
                           <Component id="assento9" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton16" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton23" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton30" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton37" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="assento2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
