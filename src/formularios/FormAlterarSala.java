@@ -5,17 +5,36 @@
  */
 package formularios;
 
+import controladores.Sala;
+import controladores.Metodos;
+import controladores.Filme;
+import PopUps.PopUps;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author 104869
  */
 public class FormAlterarSala extends javax.swing.JFrame {
 
+    Metodos m = new Metodos();
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormAlterarSala().setVisible(true);
+        });
+    }
+
     /**
      * Creates new form FormAlterarSala
      */
     public FormAlterarSala() {
         initComponents();
+
+        Metodos metodo = new Metodos();
+
+        comboFilmes.setModel(metodo.listarFilmes());
+        comboSalas.setModel(metodo.listarSalas());
     }
 
     /**
@@ -27,21 +46,216 @@ public class FormAlterarSala extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        comboFilmes = new JComboBox();
+        labelFilme = new javax.swing.JLabel();
+        labelHora = new javax.swing.JLabel();
+        textHora = new javax.swing.JFormattedTextField();
+        botaoConfirmar = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        labelPreco = new javax.swing.JLabel();
+        textPreco = new javax.swing.JTextField();
+        textNome = new javax.swing.JTextField();
+        labelNome = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        comboSalas = new JComboBox();
+        labelAssentos = new javax.swing.JLabel();
+        textAssentos = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alteração de Sala");
+        setResizable(false);
+
+        comboFilmes.setToolTipText("Selecione o filme que passará nessa sala.");
+
+        labelFilme.setText("Filme:");
+
+        labelHora.setText("Hora:");
+
+        try {
+            textHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        botaoConfirmar.setText("Confirmar");
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
+
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
+
+        labelPreco.setText("Preço do ingresso:");
+
+        textPreco.setToolTipText("Digite apenas números e ponto.");
+
+        labelNome.setText("Nome da sala:");
+
+        jLabel1.setText("Selecione uma sala:");
+
+        labelAssentos.setText("Quantidade de assentos:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPreco))
+                        .addGap(149, 149, 149))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelHora)
+                            .addComponent(labelFilme)
+                            .addComponent(labelNome)
+                            .addComponent(jLabel1)
+                            .addComponent(labelAssentos))
+                        .addGap(141, 141, 141)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(textAssentos, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                                .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFilme)
+                    .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelHora)
+                    .addComponent(textHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAssentos)
+                    .addComponent(textAssentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPreco)
+                    .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        m.listarFilmes();
+        boolean invalido = false;
+        if (textNome.getText().isEmpty()) {
+            textNome.requestFocus();
+            PopUps.displayErrorMessageJOP("Nome de sala inválido", this);
+            invalido = true;
+            return;
+        }
+        if (textHora.getText().equals("  :  ")) {
+            textHora.requestFocus();
+            PopUps.displayErrorMessageJOP("Hora inválida", this);
+            invalido = true;
+            return;
+        }
+        if ((Integer.parseInt(textHora.getText().substring(0, 2)) > 23) || (Integer.parseInt(textHora.getText().substring(3)) > 59)) {
+            textHora.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida", this);
+            invalido = true;
+            return;
+        }
+        try {
+            if (Integer.parseInt(textAssentos.getText()) <= 0) {
+                textAssentos.requestFocus();
+                PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            invalido = true;
+            textAssentos.requestFocus();
+            PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+            return;
+        }
+        if (textAssentos.getText().isEmpty()) {
+            textAssentos.requestFocus();
+            PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+            invalido = true;
+            return;
+        }
+        try {
+            if (Double.parseDouble(textPreco.getText()) <= 0) {
+                textPreco.requestFocus();
+                PopUps.displayErrorMessageJOP("Preço inválido", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            textPreco.requestFocus();
+            PopUps.displayErrorMessageJOP("Preço inválido", this);
+            invalido = true;
+            return;
+        }
+        if (textPreco.getText().isEmpty()) {
+            textPreco.requestFocus();
+            PopUps.displayErrorMessageJOP("Preço inválido", this);
+            invalido = true;
+            return;
+        }
+        if (invalido == false) {
+            Sala s = new Sala();
+            for (int i = 0; i < s.getSalas().size(); i++) {
+                if (comboSalas.getSelectedItem().equals(s.getSalas().get(i))) {
+                    s.getSalas().get(i).setNome(textNome.getText());
+                    s.getSalas().get(i).setData(textHora.getText());
+                    s.getSalas().get(i).setFilme(comboFilmes.getSelectedItem().toString());
+                    s.getSalas().get(i).setPreco(Double.parseDouble(textPreco.getText()));
+                    s.getSalas().get(i).setEspaco(Integer.parseInt(textAssentos.getText()));
+                    PopUps.displaySuccessJOP("Sala alterada com sucesso!", this);
+                    textNome.setText("");
+                    textHora.setText("");
+                    textPreco.setText("");
+                    comboSalas.requestFocus();
+                }
+            }
+        }
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +293,19 @@ public class FormAlterarSala extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoConfirmar;
+    private javax.swing.JComboBox<Filme> comboFilmes;
+    private javax.swing.JComboBox<Sala> comboSalas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelAssentos;
+    private javax.swing.JLabel labelFilme;
+    private javax.swing.JLabel labelHora;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelPreco;
+    private javax.swing.JTextField textAssentos;
+    private javax.swing.JFormattedTextField textHora;
+    private javax.swing.JTextField textNome;
+    private javax.swing.JTextField textPreco;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,33 +5,28 @@
  */
 package formularios;
 
-import controladores.Metodos;
-import controladores.Sala;
+import controladores.Venda;
 import PopUps.PopUps;
-import javax.swing.JComboBox;
+import controladores.Metodos;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author 104869
+ * @author T-Gamer
  */
-public class FormExcluirSala extends javax.swing.JFrame {
-
-    Metodos m = new Metodos();
+public class FormCaixaGerente extends javax.swing.JFrame {
+    Venda v = new Venda();
+    String strPreco = ""+v.getPreco();
     
-    static void start() {
-        java.awt.EventQueue.invokeLater(() -> {
-            new FormExcluirSala().setVisible(true);
+    static void start(){
+        java.awt.EventQueue.invokeLater(() ->{
+            new FormCaixaGerente().setVisible(true);
         });
     }
-    
-    /**
-     * Creates new form FormExcluirSala
-     */
-    public FormExcluirSala() {
+   
+    public FormCaixaGerente() {
         initComponents();
-        
-        Metodos metodo = new Metodos();
-        comboSalas.setModel(metodo.listarSalas());
+       
     }
 
     /**
@@ -43,22 +38,15 @@ public class FormExcluirSala extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelSala = new javax.swing.JLabel();
-        comboSalas = new JComboBox();
         botaoConfirmar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
+        labelDinheiro = new javax.swing.JLabel();
+        labelPreco = new javax.swing.JLabel();
+        textDinheiro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Exclusão de Sala");
+        setTitle("Caixa");
         setResizable(false);
-
-        labelSala.setText("Selecione a sala:");
-
-        comboSalas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSalasActionPerformed(evt);
-            }
-        });
 
         botaoConfirmar.setText("Confirmar");
         botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,64 +62,74 @@ public class FormExcluirSala extends javax.swing.JFrame {
             }
         });
 
+        labelDinheiro.setText("Dinheiro:");
+
+        labelPreco.setText("Total: "+strPreco);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoConfirmar)
+                    .addComponent(labelDinheiro))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textDinheiro)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(136, 136, 136))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(labelSala))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(146, 146, 146)
+                .addComponent(labelPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(25, 25, 25)
+                .addComponent(labelPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSala)
-                    .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                    .addComponent(labelDinheiro)
+                    .addComponent(textDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                    .addComponent(botaoCancelar)
+                    .addComponent(botaoConfirmar))
+                .addGap(58, 58, 58))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalasActionPerformed
-        m.listarSalas();
-    }//GEN-LAST:event_comboSalasActionPerformed
-
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
-       Sala s = new Sala();
-        for (int i = 0; i < s.getSalas().size(); i++) {
-            if(comboSalas.getSelectedItem().equals(s.getSalas().get(i))){
-                s.getSalas().remove(i);
-                PopUps.displaySuccessJOP("Sala removida com sucesso!", this);
-            }
+        Metodos m = new Metodos();
+        if(textDinheiro.getText().isEmpty()){
+            textDinheiro.requestFocus();
+            PopUps.displayErrorMessageJOP("Dinheiro inválido!", this);
         }
-        if(s.getSalas().isEmpty()){
-            this.dispose();
-            FormOptionGerente.start();
+        try{
+        if(Double.parseDouble(textDinheiro.getText()) < v.getPreco()){
+            textDinheiro.requestFocus();
+            PopUps.displayErrorMessageJOP("Dinheiro inválido!", this);
         }else{
-            comboSalas.requestFocus();
+            v.setDinheiro(Double.parseDouble(textDinheiro.getText()));
+        JOptionPane.showMessageDialog(null, "Troco: "+m.calculaTroco(v.getPreco(), v.getDinheiro()));
+        this.dispose();
+        FormGerenteVendaIngresso.start(); 
+        }  
+        }catch(Exception ex){
+            textDinheiro.requestFocus();
+            PopUps.displayErrorMessageJOP("Dinheiro inválido!", this);
         }
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.dispose();
-        FormOptionGerente.start();
+        FormGerenteVendaIngresso.start();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
@@ -151,20 +149,21 @@ public class FormExcluirSala extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormCaixaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormCaixaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormCaixaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormCaixaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormExcluirSala().setVisible(true);
+                new FormCaixaGerente().setVisible(true);
             }
         });
     }
@@ -172,7 +171,8 @@ public class FormExcluirSala extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoConfirmar;
-    private javax.swing.JComboBox<Sala> comboSalas;
-    private javax.swing.JLabel labelSala;
+    private javax.swing.JLabel labelDinheiro;
+    private javax.swing.JLabel labelPreco;
+    private javax.swing.JTextField textDinheiro;
     // End of variables declaration//GEN-END:variables
 }

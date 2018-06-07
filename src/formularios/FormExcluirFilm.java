@@ -5,17 +5,33 @@
  */
 package formularios;
 
+import controladores.Filme;
+import controladores.Metodos;
+import PopUps.PopUps;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author 104869
  */
 public class FormExcluirFilm extends javax.swing.JFrame {
 
+    Metodos m = new Metodos();
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormExcluirFilm().setVisible(true);
+        });
+    }
+
     /**
      * Creates new form FormExcluirFilm
      */
     public FormExcluirFilm() {
         initComponents();
+
+        Metodos metodo = new Metodos();
+        comboFilmes.setModel(metodo.listarFilmes());
     }
 
     /**
@@ -27,21 +43,100 @@ public class FormExcluirFilm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelFilme = new javax.swing.JLabel();
+        comboFilmes = new JComboBox();
+        botaoConfirmar = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Exclusão de Filme");
+        setResizable(false);
+
+        labelFilme.setText("Selecione o Filme:");
+
+        comboFilmes.setNextFocusableComponent(botaoConfirmar);
+        comboFilmes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFilmesActionPerformed(evt);
+            }
+        });
+
+        botaoConfirmar.setText("Confirmar");
+        botaoConfirmar.setNextFocusableComponent(botaoCancelar);
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
+
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.setNextFocusableComponent(comboFilmes);
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(labelFilme))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFilme)
+                    .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboFilmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFilmesActionPerformed
+        m.listarFilmes();
+    }//GEN-LAST:event_comboFilmesActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        Filme f = new Filme();
+        for (int i = 0; i < f.getFilmes().size(); i++) {
+            if(comboFilmes.getSelectedItem().equals(f.getFilmes().get(i))){
+                f.getFilmes().remove(i);
+                PopUps.displaySuccessJOP("Filme removido com sucesso!", this);
+            }
+        }
+        if(f.getFilmes().isEmpty()){
+            this.dispose();
+            FormOptionGerente.start();
+        }else{
+            comboFilmes.requestFocus();
+        }
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +174,9 @@ public class FormExcluirFilm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoConfirmar;
+    private javax.swing.JComboBox<Filme> comboFilmes;
+    private javax.swing.JLabel labelFilme;
     // End of variables declaration//GEN-END:variables
 }

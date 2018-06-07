@@ -5,17 +5,35 @@
  */
 package formularios;
 
+import controladores.Filme;
+import controladores.Metodos;
+import javax.swing.JComboBox;
+import PopUps.PopUps;
+import controladores.Sala;
+
 /**
  *
  * @author 104869
  */
 public class FormCadastroSala extends javax.swing.JFrame {
 
+    Metodos m = new Metodos();
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormCadastroSala().setVisible(true);
+        });
+    }
+
     /**
      * Creates new form FormCadastroSala
      */
     public FormCadastroSala() {
         initComponents();
+
+        Metodos digdin = new Metodos();
+
+        comboFilmes.setModel(digdin.listarFilmes());
     }
 
     /**
@@ -28,25 +46,38 @@ public class FormCadastroSala extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        comboFilmes = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        comboFilmes = new JComboBox();
         labelFilme = new javax.swing.JLabel();
         labelHora = new javax.swing.JLabel();
         textHora = new javax.swing.JFormattedTextField();
         botaoConfirmar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        labelTipoFilme = new javax.swing.JLabel();
         labelPreco = new javax.swing.JLabel();
-        opcaoNormal = new javax.swing.JRadioButton();
-        opcao3d = new javax.swing.JRadioButton();
         textPreco = new javax.swing.JTextField();
         textNome = new javax.swing.JTextField();
         labelNome = new javax.swing.JLabel();
+        labelAssentos = new javax.swing.JLabel();
+        textAssentos = new javax.swing.JTextField();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Compra de Ingressos");
         setResizable(false);
 
-        comboFilmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboFilmes.setToolTipText("Selecione o filme que passará nessa sala.");
         comboFilmes.setNextFocusableComponent(textHora);
 
@@ -59,26 +90,24 @@ public class FormCadastroSala extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        textHora.setText("  :  ");
-        textHora.setNextFocusableComponent(opcaoNormal);
 
         botaoConfirmar.setText("Confirmar");
         botaoConfirmar.setNextFocusableComponent(botaoCancelar);
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
 
         botaoCancelar.setText("Cancelar");
         botaoCancelar.setNextFocusableComponent(textNome);
-
-        labelTipoFilme.setText("Tipo de filme:");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         labelPreco.setText("Preço do ingresso:");
-
-        buttonGroup1.add(opcaoNormal);
-        opcaoNormal.setText("Normal");
-        opcaoNormal.setNextFocusableComponent(opcao3d);
-
-        buttonGroup1.add(opcao3d);
-        opcao3d.setText("3D");
-        opcao3d.setNextFocusableComponent(textPreco);
 
         textPreco.setToolTipText("Digite apenas números e ponto.");
         textPreco.setNextFocusableComponent(botaoConfirmar);
@@ -86,6 +115,8 @@ public class FormCadastroSala extends javax.swing.JFrame {
         textNome.setNextFocusableComponent(comboFilmes);
 
         labelNome.setText("Nome da sala:");
+
+        labelAssentos.setText("Quantidade de assentos:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,9 +128,9 @@ public class FormCadastroSala extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labelPreco)
-                        .addComponent(labelTipoFilme)
                         .addComponent(labelFilme)
-                        .addComponent(labelHora))
+                        .addComponent(labelHora)
+                        .addComponent(labelAssentos))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(labelNome)))
@@ -109,14 +140,10 @@ public class FormCadastroSala extends javax.swing.JFrame {
                         .addComponent(textHora, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(comboFilmes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(textNome, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(textPreco, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(opcaoNormal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(opcao3d))))
+                        .addComponent(textAssentos, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(textPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)))
                 .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,12 +161,11 @@ public class FormCadastroSala extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHora)
                     .addComponent(textHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTipoFilme)
-                    .addComponent(opcaoNormal)
-                    .addComponent(opcao3d))
-                .addGap(80, 80, 80)
+                    .addComponent(labelAssentos)
+                    .addComponent(textAssentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPreco)
                     .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,6 +179,91 @@ public class FormCadastroSala extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        m.listarFilmes();
+        boolean invalido = false;
+        if (textNome.getText().isEmpty()) {
+            textNome.requestFocus();
+            PopUps.displayErrorMessageJOP("Nome de sala inválido", this);
+            invalido = true;
+            return;
+        }
+        if (textHora.getText().equals("  :  ")) {
+            textHora.requestFocus();
+            PopUps.displayErrorMessageJOP("Hora inválida", this);
+            invalido = true;
+            return;
+        }
+        if ((Integer.parseInt(textHora.getText().substring(0, 2)) > 23) || (Integer.parseInt(textHora.getText().substring(3)) > 59)) {
+            textHora.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida", this);
+            invalido = true;
+            return;
+        }
+        try {
+            if (Integer.parseInt(textAssentos.getText()) <= 0) {
+                textAssentos.requestFocus();
+                PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            invalido = true;
+            textAssentos.requestFocus();
+            PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+            return;
+        }
+        if (textAssentos.getText().isEmpty()) {
+                textAssentos.requestFocus();
+                PopUps.displayErrorMessageJOP("Quantidade inválida!", this);
+                invalido = true;
+                return;
+            }
+        try {
+            if (Double.parseDouble(textPreco.getText()) <= 0) {
+                textPreco.requestFocus();
+                PopUps.displayErrorMessageJOP("Preço inválido", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            textPreco.requestFocus();
+            PopUps.displayErrorMessageJOP("Preço inválido", this);
+            invalido = true;
+            return;
+        }
+        if (textPreco.getText().isEmpty()) {
+                textPreco.requestFocus();
+                PopUps.displayErrorMessageJOP("Preço inválido", this);
+                invalido = true;
+                return;
+            }
+
+        Sala s = new Sala(textNome.getText(), textHora.getText(), Double.parseDouble(textPreco.getText()), comboFilmes.getSelectedItem().toString(), Integer.parseInt(textAssentos.getText()), Integer.parseInt(textAssentos.getText()));
+        for (int i = 0; i < s.getSalas().size(); i++) {
+            if ((textNome.getText().equals(s.getSalas().get(i).getNome()))) {
+                textNome.requestFocus();
+                PopUps.displayErrorMessageJOP("Sala já existente", this);
+                invalido = true;
+                return;
+            }
+        }
+        if (invalido == false) {
+            s.getSalas().add(s);
+            PopUps.displaySuccessJOP("Sala cadastrada com sucesso!", this);
+            textNome.setText("");
+            textHora.setText("");
+            textPreco.setText("");
+            textAssentos.setText("");
+        }
+
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,14 +304,15 @@ public class FormCadastroSala extends javax.swing.JFrame {
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoConfirmar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> comboFilmes;
+    private javax.swing.JComboBox<Filme> comboFilmes;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelAssentos;
     private javax.swing.JLabel labelFilme;
     private javax.swing.JLabel labelHora;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelPreco;
-    private javax.swing.JLabel labelTipoFilme;
-    private javax.swing.JRadioButton opcao3d;
-    private javax.swing.JRadioButton opcaoNormal;
+    private javax.swing.JTextField textAssentos;
     private javax.swing.JFormattedTextField textHora;
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textPreco;

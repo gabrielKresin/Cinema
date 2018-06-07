@@ -5,11 +5,24 @@
  */
 package formularios;
 
+import controladores.Vendedor;
+import PopUps.PopUps;
+import java.util.Arrays;
+import controladores.Gerente;
+
 /**
  *
  * @author 104869
  */
 public class FormCadastroFunc extends javax.swing.JFrame {
+
+    Gerente g = new Gerente();
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormCadastroFunc().setVisible(true);
+        });
+    }
 
     /**
      * Creates new form FormCadastroFunc
@@ -42,9 +55,9 @@ public class FormCadastroFunc extends javax.swing.JFrame {
         botaoCancelar = new javax.swing.JButton();
         textSenha = new javax.swing.JPasswordField();
         botaoConfirmar = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        textCpf = new javax.swing.JFormattedTextField();
+        textRg = new javax.swing.JFormattedTextField();
+        textTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Funcionário");
@@ -79,6 +92,7 @@ public class FormCadastroFunc extends javax.swing.JFrame {
         labelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNome.setText("Nome Completo:");
 
+        textNome.setToolTipText("Digite o nome.");
         textNome.setNextFocusableComponent(textIdade);
         textNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,33 +107,50 @@ public class FormCadastroFunc extends javax.swing.JFrame {
             }
         });
 
+        textEndereco.setToolTipText("Digite o endereço.");
+
+        textLogin.setToolTipText("Digite o login.");
         textLogin.setNextFocusableComponent(textSenha);
 
         botaoCancelar.setText("Cancelar");
         botaoCancelar.setNextFocusableComponent(textNome);
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
+        textSenha.setToolTipText("Digite a senha.");
         textSenha.setNextFocusableComponent(botaoConfirmar);
 
         botaoConfirmar.setText("Confirmar");
         botaoConfirmar.setNextFocusableComponent(botaoCancelar);
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            textCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        textCpf.setToolTipText("Digite o CPF apenas em números.");
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###-#")));
+            textRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        textRg.setToolTipText("Digite o RG apenas em números.");
 
         try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+            textTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        textTelefone.setToolTipText("Digite o telefone apenas em números.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,32 +181,32 @@ public class FormCadastroFunc extends javax.swing.JFrame {
                             .addComponent(textSenha)
                             .addComponent(textIdade)
                             .addComponent(textNome)
-                            .addComponent(jFormattedTextField1)
-                            .addComponent(jFormattedTextField2)
-                            .addComponent(jFormattedTextField3)))
+                            .addComponent(textCpf)
+                            .addComponent(textRg)
+                            .addComponent(textTelefone)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 300, Short.MAX_VALUE)
+                        .addGap(0, 289, Short.MAX_VALUE)
                         .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
                         .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(300, 300, 300))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,11 +214,11 @@ public class FormCadastroFunc extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelRg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,6 +245,124 @@ public class FormCadastroFunc extends javax.swing.JFrame {
     private void textIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textIdadeActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        boolean invalido = false;
+        int idade = 0;
+        if (textNome.getText().isEmpty()) {
+            textNome.requestFocus();
+            PopUps.displayErrorMessageJOP("Nome inválido!", this);
+            invalido = true;
+            return;
+        }
+        try {
+            idade = Integer.parseInt(textIdade.getText());
+        } catch (Exception ex) {
+            invalido = true;
+            PopUps.displayErrorMessageJOP("Idade inválida!", this);
+            return;
+        }    
+        if (textIdade.getText().isEmpty()) {
+            textIdade.requestFocus();
+            PopUps.displayErrorMessageJOP("Idade inválida!", this);
+            invalido = true;
+            return;
+        }
+        if ((idade < 18) || (idade > 65)) {
+            textIdade.requestFocus();
+            PopUps.displayErrorMessageJOP("Idade inválida!", this);
+            invalido = true;
+            return;
+        }
+        if (textTelefone.getText().equals("(  )     -    ")) {
+            textTelefone.requestFocus();
+            PopUps.displayErrorMessageJOP("Telefone inválido!", this);
+            invalido = true;
+            return;
+        }
+        if (textEndereco.getText().isEmpty()) {
+            textEndereco.requestFocus();
+            PopUps.displayErrorMessageJOP("Endereço inválido!", this);
+            invalido = true;
+            return;
+        }
+        if (textCpf.getText().equals("   .   .   -  ")) {
+            textCpf.requestFocus();
+            PopUps.displayErrorMessageJOP("Endereço inválido!", this);
+            invalido = true;
+            return;
+        }
+        if (textRg.getText().equals(" .   .   - ")) {
+            textRg.requestFocus();
+            PopUps.displayErrorMessageJOP("RG inválido!", this);
+            invalido = true;
+            return;
+        }
+        if (textLogin.getText().isEmpty()) {
+            textLogin.requestFocus();
+            PopUps.displayErrorMessageJOP("Login inválido!", this);
+            invalido = true;
+            return;
+        }
+        if (Arrays.toString(textSenha.getPassword()).isEmpty()) {
+            textSenha.requestFocus();
+            PopUps.displayErrorMessageJOP("Senha inválida!", this);
+            invalido = true;
+            return;
+        }
+
+        Vendedor vendedor = new Vendedor(textLogin.getText(), textSenha.getPassword(), textNome.getText(), textTelefone.getText(), textEndereco.getText(), textCpf.getText(), textRg.getText(), idade);
+        for (int i = 0; i < vendedor.getVendedores().size(); i++) {
+            if (textCpf.getText().equals(vendedor.getVendedores().get(i).getCpf())) {
+                textCpf.requestFocus();
+                PopUps.displayErrorMessageJOP("Esse CPF já está cadastrado!", this);
+                invalido = true;
+                return;
+            }
+        }
+        for (int i = 0; i < vendedor.getVendedores().size(); i++) {
+            if (textRg.getText().equals(vendedor.getVendedores().get(i).getRg())) {
+                textRg.requestFocus();
+                PopUps.displayErrorMessageJOP("Esse RG já está cadastrado!", this);
+                invalido = true;
+                return;
+            }
+        }
+        if (textLogin.getText().equals(g.getUsername())) {
+            textLogin.requestFocus();
+            PopUps.displayErrorMessageJOP("Esse login já existe!", this);
+            invalido = true;
+            return;
+        }
+        for (int i = 0; i < vendedor.getVendedores().size(); i++) {
+            if (textLogin.getText().equals(vendedor.getVendedores().get(i).getLogin())) {
+                textLogin.requestFocus();
+                PopUps.displayErrorMessageJOP("Esse login já existe!", this);
+                invalido = true;
+                return;
+            }
+        }
+        Vendedor v = new Vendedor(textLogin.getText(), textSenha.getPassword(), textNome.getText(), textTelefone.getText(), textEndereco.getText(), textCpf.getText(), textRg.getText(), idade);
+        if (invalido == false) {
+            v.getVendedores().add(v);
+            PopUps.displaySuccessJOP("Funcionário cadastrado com sucesso!", this);
+            textRg.setText("");
+            textCpf.setText("");
+            textNome.setText("");
+            textTelefone.setText("");
+            textLogin.setText("");
+            textEndereco.setText("");
+            textIdade.setText("");
+            textSenha.setText("");
+            textNome.requestFocus();
+        }
+
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,9 +402,6 @@ public class FormCadastroFunc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoConfirmar;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelEndereco;
     private javax.swing.JLabel labelIdade;
@@ -264,10 +410,13 @@ public class FormCadastroFunc extends javax.swing.JFrame {
     private javax.swing.JLabel labelRg;
     private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelTelefone;
+    private javax.swing.JFormattedTextField textCpf;
     private javax.swing.JTextField textEndereco;
     private javax.swing.JTextField textIdade;
     private javax.swing.JTextField textLogin;
     private javax.swing.JTextField textNome;
+    private javax.swing.JFormattedTextField textRg;
     private javax.swing.JPasswordField textSenha;
+    private javax.swing.JFormattedTextField textTelefone;
     // End of variables declaration//GEN-END:variables
 }

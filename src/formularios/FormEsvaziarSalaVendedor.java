@@ -5,32 +5,29 @@
  */
 package formularios;
 
-import controladores.Metodos;
 import controladores.Sala;
-import PopUps.PopUps;
+import controladores.Metodos;
 import javax.swing.JComboBox;
+import PopUps.PopUps;
 
-/**
- *
- * @author 104869
- */
-public class FormExcluirSala extends javax.swing.JFrame {
-
+public class FormEsvaziarSalaVendedor extends javax.swing.JFrame {
+ 
     Metodos m = new Metodos();
-    
-    static void start() {
-        java.awt.EventQueue.invokeLater(() -> {
-            new FormExcluirSala().setVisible(true);
+
+    static void start(){
+        java.awt.EventQueue.invokeLater(() ->{
+            new FormEsvaziarSalaVendedor().setVisible(true);
         });
     }
     
     /**
-     * Creates new form FormExcluirSala
+     * Creates new form FormEsvaziarSala
      */
-    public FormExcluirSala() {
+    public FormEsvaziarSalaVendedor() {
         initComponents();
         
         Metodos metodo = new Metodos();
+
         comboSalas.setModel(metodo.listarSalas());
     }
 
@@ -49,16 +46,8 @@ public class FormExcluirSala extends javax.swing.JFrame {
         botaoCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Exclusão de Sala");
-        setResizable(false);
 
-        labelSala.setText("Selecione a sala:");
-
-        comboSalas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSalasActionPerformed(evt);
-            }
-        });
+        labelSala.setText("Selecione uma sala:");
 
         botaoConfirmar.setText("Confirmar");
         botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,57 +70,49 @@ public class FormExcluirSala extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(labelSala))
+                        .addGap(43, 43, 43)
+                        .addComponent(labelSala)
+                        .addGap(99, 99, 99)
+                        .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGap(58, 58, 58)
+                        .addComponent(botaoConfirmar)
+                        .addGap(65, 65, 65)
+                        .addComponent(botaoCancelar)))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSala)
                     .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                    .addComponent(botaoConfirmar)
+                    .addComponent(botaoCancelar))
+                .addGap(93, 93, 93))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalasActionPerformed
-        m.listarSalas();
-    }//GEN-LAST:event_comboSalasActionPerformed
-
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
-       Sala s = new Sala();
+        Sala s = new Sala();
         for (int i = 0; i < s.getSalas().size(); i++) {
             if(comboSalas.getSelectedItem().equals(s.getSalas().get(i))){
-                s.getSalas().remove(i);
-                PopUps.displaySuccessJOP("Sala removida com sucesso!", this);
+                int novoEspaco = s.getSalas().get(i).getEspaco();
+                s.getSalas().get(i).setEspacoDisponivel(novoEspaco);
+                PopUps.displaySuccessJOP("Sala esvaziado com sucesso!", this);
+
             }
-        }
-        if(s.getSalas().isEmpty()){
-            this.dispose();
-            FormOptionGerente.start();
-        }else{
-            comboSalas.requestFocus();
         }
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.dispose();
-        FormOptionGerente.start();
+        FormVendedor.start();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
@@ -151,20 +132,21 @@ public class FormExcluirSala extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEsvaziarSalaVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEsvaziarSalaVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEsvaziarSalaVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormExcluirSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEsvaziarSalaVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormExcluirSala().setVisible(true);
+                new FormEsvaziarSalaVendedor().setVisible(true);
             }
         });
     }

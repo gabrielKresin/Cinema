@@ -4,6 +4,27 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -35,9 +56,9 @@
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="botaoConfirmar" min="-2" pref="150" max="-2" attributes="0"/>
                       <Component id="labelPreco" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelTipoFilme" min="-2" max="-2" attributes="0"/>
                       <Component id="labelFilme" min="-2" max="-2" attributes="0"/>
                       <Component id="labelHora" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelAssentos" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
@@ -51,16 +72,10 @@
                       <Component id="comboFilmes" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="botaoCancelar" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="textNome" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="textNome" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="textPreco" alignment="0" max="32767" attributes="0"/>
-                              <Component id="opcaoNormal" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="opcao3d" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="textAssentos" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textPreco" alignment="0" pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="179" max="32767" attributes="0"/>
@@ -85,13 +100,12 @@
                   <Component id="labelHora" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textHora" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelTipoFilme" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="opcaoNormal" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="opcao3d" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelAssentos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textAssentos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textPreco" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -109,21 +123,14 @@
   <SubComponents>
     <Component class="javax.swing.JComboBox" name="comboFilmes">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
         <Property name="toolTipText" type="java.lang.String" value="Selecione o filme que passar&#xe1; nessa sala."/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="textHora"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JComboBox()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Filme&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelFilme">
@@ -141,10 +148,6 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##:##" subtype="-1" type="5"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="  :  "/>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="opcaoNormal"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botaoConfirmar">
@@ -154,6 +157,9 @@
           <ComponentRef name="botaoCancelar"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConfirmarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoCancelar">
       <Properties>
@@ -162,37 +168,13 @@
           <ComponentRef name="textNome"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelTipoFilme">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de filme:"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPreco">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pre&#xe7;o do ingresso:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="opcaoNormal">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroup1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Normal"/>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="opcao3d"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="opcao3d">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroup1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="3D"/>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="textPreco"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textPreco">
@@ -214,6 +196,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome da sala:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelAssentos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantidade de assentos:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textAssentos">
     </Component>
   </SubComponents>
 </Form>

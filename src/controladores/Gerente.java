@@ -1,11 +1,16 @@
 package controladores;
 
-import java.util.ArrayList;
+public class Gerente {
 
-public class Gerente extends Funcionario{
-    
-    String login;
-    String senha;
-    ArrayList<Gerente> gerentes = new ArrayList<>();
-    
+    private final String username = "adm";
+
+    public String getUsername() {
+        return username;
+    }
+
+    public char[] getPassword() {
+        return password;
+    }
+    private final char[] password = {'a', 'd', 'm'};
+
 }

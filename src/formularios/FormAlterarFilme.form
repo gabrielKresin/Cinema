@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Altera&#xe7;&#xe3;o de Filme"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -23,13 +25,319 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="289" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="botaoConfirmar" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="labelDuracao" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelGenero" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelMenorIdade" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelFilme" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="textNome" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="textDuracao" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Component id="checkAventura" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkComedia" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkDocumentario" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkFantasia" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="checkAcao" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkAnimacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkFaroeste" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="checkTragedia" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkGuerra" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkFiccao" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkMusicais" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkRomance" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkSuspense" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkTerror" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="botaoCancelar" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="opcaoLivre" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opcao10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opcao12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opcao14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opcao16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opcao18" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="comboFilmes" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="300" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelFilme" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboFilmes" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textNome" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelMenorIdade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcaoLivre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcao10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcao12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcao14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcao16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="opcao18" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelDuracao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDuracao" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="labelGenero" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkAcao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkFiccao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkAnimacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkGuerra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkAventura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkMusicais" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkComedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkRomance" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkDocumentario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkSuspense" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkFantasia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkTerror" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkFaroeste" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkTragedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="botaoConfirmar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="botaoCancelar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="labelDuracao">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Dura&#xe7;&#xe3;o:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelGenero">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="G&#xea;nero:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoConfirmar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Confirmar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConfirmarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textNome">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="textDuracao">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##:##" subtype="-1" type="5"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Apenas n&#xfa;meros. 00:00 at&#xe9; 23:59."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkAcao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xe7;&#xe3;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkAnimacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Anima&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkAnimacaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkAventura">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aventura"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkComedia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Com&#xe9;dia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcaoLivre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Livre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkMusicais">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Musicais"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkMusicaisActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkRomance">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Romance"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkSuspense">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Suspense"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkTerror">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Terror"/>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkTragedia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Trag&#xe9;dia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoCancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNome">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Nome do filme:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelMenorIdade">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Classifica&#xe7;&#xe3;o indicativa:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcao10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcao12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="12"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcao14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="14"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcao16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="16"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="opcao18">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="18"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkDocumentario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Document&#xe1;rio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkFantasia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fantasia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkFaroeste">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Faroeste"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkFiccao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fic&#xe7;&#xe3;o Cient&#xed;fica"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkGuerra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guerra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelFilme">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Selecione um filme:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboFilmes">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboFilmesActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JComboBox()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Filme&gt;"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
 </Form>

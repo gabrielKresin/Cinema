@@ -32,22 +32,23 @@
                   <Component id="botaoAlterarFunc" alignment="0" pref="150" max="32767" attributes="0"/>
                   <Component id="botaoExcluirFunc" alignment="0" max="32767" attributes="0"/>
                   <Component id="botaoListarFunc" alignment="0" max="32767" attributes="0"/>
+                  <Component id="botaoVenderIngresso" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="botaoLogoff" max="32767" attributes="0"/>
-                  <Component id="botaoVenderIngresso" alignment="0" pref="150" max="32767" attributes="0"/>
                   <Component id="botaoListarFilm" alignment="0" max="32767" attributes="0"/>
                   <Component id="botaoExcluirFilm" alignment="1" max="32767" attributes="0"/>
                   <Component id="botaoAlterarFilm" alignment="1" max="32767" attributes="0"/>
-                  <Component id="botaoCadastrarFilm" alignment="1" max="32767" attributes="0"/>
+                  <Component id="botaoCadastrarFilm" alignment="1" pref="150" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="145" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botaoCadastrarSala" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="botaoAlterarSala" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="botaoExcluirSala" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="botaoListarSala" min="-2" pref="150" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="botaoCadastrarSala" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="botaoAlterarSala" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="botaoExcluirSala" alignment="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="botaoListarSala" pref="150" max="32767" attributes="0"/>
+                  <Component id="botaoEsvaziarSala" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="162" max="32767" attributes="0"/>
           </Group>
@@ -80,11 +81,13 @@
                   <Component id="botaoListarFilm" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="botaoListarSala" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-              <Component id="botaoVenderIngresso" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
-              <Component id="botaoLogoff" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="botaoVenderIngresso" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="botaoLogoff" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="botaoEsvaziarSala" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,46 +100,73 @@
           <Dimension value="[100, 40]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarFuncActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoAlterarFunc">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Funcion&#xe1;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAlterarFuncActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoExcluirFunc">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir Funcion&#xe1;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoExcluirFuncActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoListarFunc">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar Funcion&#xe1;rios"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoListarFuncActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoCadastrarFilm">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Filme"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarFilmActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoAlterarFilm">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Filme"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAlterarFilmActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoExcluirFilm">
       <Properties>
         <Property name="text" type="java.lang.String" value="ExcluirFilme"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoExcluirFilmActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoListarFilm">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar Filmes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoListarFilmActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoCadastrarSala">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Sala"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarSalaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoAlterarSala">
       <Properties>
@@ -151,21 +181,41 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir Sala"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoExcluirSalaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoListarSala">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar Salas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoListarSalaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoVenderIngresso">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vender Ingresso"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoVenderIngressoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoLogoff">
       <Properties>
         <Property name="text" type="java.lang.String" value="Logoff"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLogoffActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoEsvaziarSala">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Esvaziar Sala"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEsvaziarSalaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -223,9 +223,13 @@
           <ComponentRef name="botaoCancelar"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConfirmarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textNome">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Digite o nome do filme."/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="opcaoLivre"/>
         </Property>
@@ -434,6 +438,9 @@
           <ComponentRef name="textNome"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

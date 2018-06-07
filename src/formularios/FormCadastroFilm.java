@@ -5,11 +5,20 @@
  */
 package formularios;
 
+import PopUps.PopUps;
+import controladores.Filme;
+
 /**
  *
  * @author 104869
  */
 public class FormCadastroFilm extends javax.swing.JFrame {
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormCadastroFilm().setVisible(true);
+        });
+    }
 
     /**
      * Creates new form FormCadsatroFilm
@@ -96,7 +105,13 @@ public class FormCadastroFilm extends javax.swing.JFrame {
 
         botaoConfirmar.setText("Confirmar");
         botaoConfirmar.setNextFocusableComponent(botaoCancelar);
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
 
+        textNome.setToolTipText("Digite o nome do filme.");
         textNome.setNextFocusableComponent(opcaoLivre);
 
         try {
@@ -186,6 +201,11 @@ public class FormCadastroFilm extends javax.swing.JFrame {
 
         botaoCancelar.setText("Cancelar");
         botaoCancelar.setNextFocusableComponent(textNome);
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,6 +327,152 @@ public class FormCadastroFilm extends javax.swing.JFrame {
     private void checkMusicaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMusicaisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkMusicaisActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        String genero = "";
+        String classificacao = "";
+        boolean invalido = false;
+        if (textNome.getText().isEmpty()) {
+            textNome.requestFocus();
+            PopUps.displayErrorMessageJOP("Nome inválido!", this);
+            invalido = true;
+            return;
+        }
+        if ((!opcaoLivre.isSelected()) && (!opcao10.isSelected()) && (!opcao12.isSelected()) && (!opcao14.isSelected()) && (!opcao16.isSelected()) && (!opcao18.isSelected())) {
+            opcaoLivre.requestFocus();
+            PopUps.displayErrorMessageJOP("Selecione uma opção!", this);
+            invalido = true;
+            return;
+        }
+        if (textDuracao.getText().equals("  :  ")) {
+            textDuracao.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida!", this);
+            invalido = true;
+            return;
+        }
+        try {
+            if ((Integer.parseInt(textDuracao.getText().substring(0, 2)) > 23) || (Integer.parseInt(textDuracao.getText().substring(3)) > 59)) {
+                textDuracao.requestFocus();
+                PopUps.displayErrorMessageJOP("Duração inválida", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            textDuracao.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida", this);
+            invalido = true;
+            return;
+        }
+        if ((!checkAcao.isSelected()) && (!checkAnimacao.isSelected()) && (!checkAventura.isSelected()) && (!checkComedia.isSelected()) && (!checkDocumentario.isSelected()) && (!checkFantasia.isSelected()) && (!checkFaroeste.isSelected()) && (!checkFiccao.isSelected()) && (!checkGuerra.isSelected()) && (!checkMusicais.isSelected()) && (!checkRomance.isSelected()) && (!checkSuspense.isSelected()) && (!checkTerror.isSelected()) && (!checkTragedia.isSelected())) {
+            checkAcao.requestFocus();
+            PopUps.displayErrorMessageJOP("Selecione uma opção!", this);
+            invalido = true;
+            return;
+        }
+
+        if (opcaoLivre.isSelected()) {
+            classificacao = "Livre";
+        }
+        if (opcao10.isSelected()) {
+            classificacao = "10";
+        }
+        if (opcao12.isSelected()) {
+            classificacao = "12";
+        }
+        if (opcao14.isSelected()) {
+            classificacao = "14";
+        }
+        if (opcao16.isSelected()) {
+            classificacao = "16";
+        }
+        if (opcao18.isSelected()) {
+            classificacao = "18";
+        }
+        if (checkAcao.isSelected()) {
+            genero = " Ação ";
+        }
+        if (checkAnimacao.isSelected()) {
+            genero += " Animação ";
+        }
+        if (checkAventura.isSelected()) {
+            genero += " Aventura ";
+        }
+        if (checkComedia.isSelected()) {
+            genero += " Comédia ";
+        }
+        if (checkDocumentario.isSelected()) {
+            genero += " Documentário ";
+        }
+        if (checkFantasia.isSelected()) {
+            genero += " Fantasia ";
+        }
+        if (checkFaroeste.isSelected()) {
+            genero += " Faroeste ";
+        }
+        if (checkFiccao.isSelected()) {
+            genero += " Ficção ";
+        }
+        if (checkGuerra.isSelected()) {
+            genero += " Guerra ";
+        }
+        if (checkMusicais.isSelected()) {
+            genero += " Musicais ";
+        }
+        if (checkRomance.isSelected()) {
+            genero += " Romance ";
+        }
+        if (checkSuspense.isSelected()) {
+            genero += " Suspense ";
+        }
+        if (checkTerror.isSelected()) {
+            genero += " Terror ";
+        }
+        if (checkTragedia.isSelected()) {
+            genero += " Tragédia";
+        }
+        Filme f = new Filme(textNome.getText(), classificacao, genero, textDuracao.getText());
+        for (int i = 0; i < f.getFilmes().size(); i++) {
+            if (textNome.getText().equals(f.getFilmes().get(i).getNome())) {
+                textNome.requestFocus();
+                PopUps.displayErrorMessageJOP("Filme já cadastrado!", this);
+                invalido = true;
+                return;
+            }
+        }
+        if (invalido == false) {
+            f.getFilmes().add(f);
+            PopUps.displaySuccessJOP("Filme cadastrado com sucesso!", this);
+            System.out.println(f.getFilmes().size());
+            textNome.setText("");
+            textDuracao.setText("");
+            opcaoLivre.setSelected(false);
+            opcao10.setSelected(false);
+            opcao12.setSelected(false);
+            opcao14.setSelected(false);
+            opcao16.setSelected(false);
+            opcao18.setSelected(false);
+            checkAcao.setSelected(false);
+            checkAnimacao.setSelected(false);
+            checkAventura.setSelected(false);
+            checkComedia.setSelected(false);
+            checkDocumentario.setSelected(false);
+            checkFantasia.setSelected(false);
+            checkFaroeste.setSelected(false);
+            checkFiccao.setSelected(false);
+            checkGuerra.setSelected(false);
+            checkMusicais.setSelected(false);
+            checkRomance.setSelected(false);
+            checkSuspense.setSelected(false);
+            checkTerror.setSelected(false);
+            checkTragedia.setSelected(false);
+            textNome.requestFocus();
+        }
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments

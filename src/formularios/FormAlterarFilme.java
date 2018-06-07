@@ -5,17 +5,33 @@
  */
 package formularios;
 
+import controladores.Filme;
+import controladores.Metodos;
+import PopUps.PopUps;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author 104869
  */
 public class FormAlterarFilme extends javax.swing.JFrame {
 
+    Metodos m = new Metodos();
+
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormAlterarFilme().setVisible(true);
+        });
+    }
+
     /**
      * Creates new form FormAlterarFilme
      */
     public FormAlterarFilme() {
         initComponents();
+
+        Metodos metodo = new Metodos();
+        comboFilmes.setModel(metodo.listarFilmes());
     }
 
     /**
@@ -27,21 +43,407 @@ public class FormAlterarFilme extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelDuracao = new javax.swing.JLabel();
+        labelGenero = new javax.swing.JLabel();
+        botaoConfirmar = new javax.swing.JButton();
+        textNome = new javax.swing.JTextField();
+        textDuracao = new javax.swing.JFormattedTextField();
+        checkAcao = new javax.swing.JCheckBox();
+        checkAnimacao = new javax.swing.JCheckBox();
+        checkAventura = new javax.swing.JCheckBox();
+        checkComedia = new javax.swing.JCheckBox();
+        opcaoLivre = new javax.swing.JRadioButton();
+        checkMusicais = new javax.swing.JCheckBox();
+        checkRomance = new javax.swing.JCheckBox();
+        checkSuspense = new javax.swing.JCheckBox();
+        checkTerror = new javax.swing.JCheckBox();
+        checkTragedia = new javax.swing.JCheckBox();
+        botaoCancelar = new javax.swing.JButton();
+        labelNome = new javax.swing.JLabel();
+        labelMenorIdade = new javax.swing.JLabel();
+        opcao10 = new javax.swing.JRadioButton();
+        opcao12 = new javax.swing.JRadioButton();
+        opcao14 = new javax.swing.JRadioButton();
+        opcao16 = new javax.swing.JRadioButton();
+        opcao18 = new javax.swing.JRadioButton();
+        checkDocumentario = new javax.swing.JCheckBox();
+        checkFantasia = new javax.swing.JCheckBox();
+        checkFaroeste = new javax.swing.JCheckBox();
+        checkFiccao = new javax.swing.JCheckBox();
+        checkGuerra = new javax.swing.JCheckBox();
+        labelFilme = new javax.swing.JLabel();
+        comboFilmes = new JComboBox();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alteração de Filme");
+        setResizable(false);
+
+        labelDuracao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelDuracao.setText("Duração:");
+
+        labelGenero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelGenero.setText("Gênero:");
+
+        botaoConfirmar.setText("Confirmar");
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
+
+        try {
+            textDuracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        textDuracao.setToolTipText("Apenas números. 00:00 até 23:59.");
+
+        checkAcao.setText("Ação");
+
+        checkAnimacao.setText("Animação");
+        checkAnimacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAnimacaoActionPerformed(evt);
+            }
+        });
+
+        checkAventura.setText("Aventura");
+
+        checkComedia.setText("Comédia");
+
+        opcaoLivre.setText("Livre");
+
+        checkMusicais.setText("Musicais");
+        checkMusicais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkMusicaisActionPerformed(evt);
+            }
+        });
+
+        checkRomance.setText("Romance");
+
+        checkSuspense.setText("Suspense");
+
+        checkTerror.setText("Terror");
+        checkTerror.setName(""); // NOI18N
+
+        checkTragedia.setText("Tragédia");
+
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
+
+        labelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNome.setText("Nome do filme:");
+
+        labelMenorIdade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelMenorIdade.setText("Classificação indicativa:");
+
+        opcao10.setText("10");
+
+        opcao12.setText("12");
+
+        opcao14.setText("14");
+
+        opcao16.setText("16");
+
+        opcao18.setText("18");
+
+        checkDocumentario.setText("Documentário");
+
+        checkFantasia.setText("Fantasia");
+
+        checkFaroeste.setText("Faroeste");
+
+        checkFiccao.setText("Ficção Científica");
+
+        checkGuerra.setText("Guerra");
+
+        labelFilme.setText("Selecione um filme:");
+
+        comboFilmes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFilmesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(289, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelDuracao)
+                        .addComponent(labelGenero)
+                        .addComponent(labelNome)
+                        .addComponent(labelMenorIdade)
+                        .addComponent(labelFilme)))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkAventura)
+                    .addComponent(checkComedia)
+                    .addComponent(checkDocumentario)
+                    .addComponent(checkFantasia)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkAcao)
+                            .addComponent(checkAnimacao)
+                            .addComponent(checkFaroeste))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkTragedia)
+                            .addComponent(checkGuerra)
+                            .addComponent(checkFiccao)
+                            .addComponent(checkMusicais)
+                            .addComponent(checkRomance)
+                            .addComponent(checkSuspense)
+                            .addComponent(checkTerror)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(opcaoLivre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(opcao10)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(opcao12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(opcao14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(opcao16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(opcao18)))
+                    .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFilme)
+                    .addComponent(comboFilmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMenorIdade)
+                    .addComponent(opcaoLivre)
+                    .addComponent(opcao10)
+                    .addComponent(opcao12)
+                    .addComponent(opcao14)
+                    .addComponent(opcao16)
+                    .addComponent(opcao18))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDuracao)
+                    .addComponent(textDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelGenero)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkAcao)
+                            .addComponent(checkFiccao))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkAnimacao)
+                            .addComponent(checkGuerra))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkAventura)
+                            .addComponent(checkMusicais))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkComedia)
+                            .addComponent(checkRomance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkDocumentario)
+                            .addComponent(checkSuspense))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkFantasia)
+                            .addComponent(checkTerror))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(checkFaroeste)
+                            .addComponent(checkTragedia))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(119, 119, 119))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkAnimacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAnimacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkAnimacaoActionPerformed
+
+    private void checkMusicaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMusicaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkMusicaisActionPerformed
+
+    private void comboFilmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFilmesActionPerformed
+        m.listarFilmes();
+    }//GEN-LAST:event_comboFilmesActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        String genero = "";
+        String classificacao = "";
+        boolean invalido = false;
+        if (textNome.getText().isEmpty()) {
+            textNome.requestFocus();
+            PopUps.displayErrorMessageJOP("Nome inválido!", this);
+            invalido = true;
+            return;
+        }
+        if ((!opcaoLivre.isSelected()) && (!opcao10.isSelected()) && (!opcao12.isSelected()) && (!opcao14.isSelected()) && (!opcao16.isSelected()) && (!opcao18.isSelected())) {
+            opcaoLivre.requestFocus();
+            PopUps.displayErrorMessageJOP("Selecione uma opção!", this);
+            invalido = true;
+            return;
+        }
+        if (textDuracao.getText().equals("  :  ")) {
+            textDuracao.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida!", this);
+            invalido = true;
+            return;
+        }
+        try {
+            if ((Integer.parseInt(textDuracao.getText().substring(0, 2)) > 23) || (Integer.parseInt(textDuracao.getText().substring(3)) > 59)) {
+                textDuracao.requestFocus();
+                PopUps.displayErrorMessageJOP("Duração inválida", this);
+                invalido = true;
+                return;
+            }
+        } catch (Exception ex) {
+            textDuracao.requestFocus();
+            PopUps.displayErrorMessageJOP("Duração inválida", this);
+            invalido = true;
+            return;
+        }
+        if ((!checkAcao.isSelected()) && (!checkAnimacao.isSelected()) && (!checkAventura.isSelected()) && (!checkComedia.isSelected()) && (!checkDocumentario.isSelected()) && (!checkFantasia.isSelected()) && (!checkFaroeste.isSelected()) && (!checkFiccao.isSelected()) && (!checkGuerra.isSelected()) && (!checkMusicais.isSelected()) && (!checkRomance.isSelected()) && (!checkSuspense.isSelected()) && (!checkTerror.isSelected()) && (!checkTragedia.isSelected())) {
+            checkAcao.requestFocus();
+            PopUps.displayErrorMessageJOP("Selecione uma opção!", this);
+            invalido = true;
+            return;
+        }
+
+        if (opcaoLivre.isSelected()) {
+            classificacao = "Livre";
+        }
+        if (opcao10.isSelected()) {
+            classificacao = "10";
+        }
+        if (opcao12.isSelected()) {
+            classificacao = "12";
+        }
+        if (opcao14.isSelected()) {
+            classificacao = "14";
+        }
+        if (opcao16.isSelected()) {
+            classificacao = "16";
+        }
+        if (opcao18.isSelected()) {
+            classificacao = "18";
+        }
+        if (checkAcao.isSelected()) {
+            genero = " Ação ";
+        }
+        if (checkAnimacao.isSelected()) {
+            genero += " Animação ";
+        }
+        if (checkAventura.isSelected()) {
+            genero += " Aventura ";
+        }
+        if (checkComedia.isSelected()) {
+            genero += " Comédia ";
+        }
+        if (checkDocumentario.isSelected()) {
+            genero += " Documentário ";
+        }
+        if (checkFantasia.isSelected()) {
+            genero += " Fantasia ";
+        }
+        if (checkFaroeste.isSelected()) {
+            genero += " Faroeste ";
+        }
+        if (checkFiccao.isSelected()) {
+            genero += " Ficção ";
+        }
+        if (checkGuerra.isSelected()) {
+            genero += " Guerra ";
+        }
+        if (checkMusicais.isSelected()) {
+            genero += " Musicais ";
+        }
+        if (checkRomance.isSelected()) {
+            genero += " Romance ";
+        }
+        if (checkSuspense.isSelected()) {
+            genero += " Suspense ";
+        }
+        if (checkTerror.isSelected()) {
+            genero += " Terror ";
+        }
+        if (checkTragedia.isSelected()) {
+            genero += " Tragédia";
+        }
+        if (invalido == false) {
+            Filme f = new Filme();
+            for (int i = 0; i < f.getFilmes().size(); i++) {
+                if (comboFilmes.getSelectedItem().equals(f.getFilmes().get(i))) {
+                    f.getFilmes().get(i).setNome(textNome.getText());
+                    f.getFilmes().get(i).setMenorIdade(classificacao);
+                    f.getFilmes().get(i).setGenero(genero);
+                    f.getFilmes().get(i).setDuracao(textDuracao.getText());
+                    PopUps.displaySuccessJOP("Filme alterado com sucesso!", this);
+                    textNome.setText("");
+                    textDuracao.setText("");
+                    opcaoLivre.setSelected(false);
+                    opcao10.setSelected(false);
+                    opcao12.setSelected(false);
+                    opcao14.setSelected(false);
+                    opcao16.setSelected(false);
+                    opcao18.setSelected(false);
+                    checkAcao.setSelected(false);
+                    checkAnimacao.setSelected(false);
+                    checkAventura.setSelected(false);
+                    checkComedia.setSelected(false);
+                    checkDocumentario.setSelected(false);
+                    checkFantasia.setSelected(false);
+                    checkFaroeste.setSelected(false);
+                    checkFiccao.setSelected(false);
+                    checkGuerra.setSelected(false);
+                    checkMusicais.setSelected(false);
+                    checkRomance.setSelected(false);
+                    checkSuspense.setSelected(false);
+                    checkTerror.setSelected(false);
+                    checkTragedia.setSelected(false);
+                    comboFilmes.requestFocus();
+                }
+            }
+        }
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        this.dispose();
+        FormOptionGerente.start();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +481,35 @@ public class FormAlterarFilme extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoConfirmar;
+    private javax.swing.JCheckBox checkAcao;
+    private javax.swing.JCheckBox checkAnimacao;
+    private javax.swing.JCheckBox checkAventura;
+    private javax.swing.JCheckBox checkComedia;
+    private javax.swing.JCheckBox checkDocumentario;
+    private javax.swing.JCheckBox checkFantasia;
+    private javax.swing.JCheckBox checkFaroeste;
+    private javax.swing.JCheckBox checkFiccao;
+    private javax.swing.JCheckBox checkGuerra;
+    private javax.swing.JCheckBox checkMusicais;
+    private javax.swing.JCheckBox checkRomance;
+    private javax.swing.JCheckBox checkSuspense;
+    private javax.swing.JCheckBox checkTerror;
+    private javax.swing.JCheckBox checkTragedia;
+    private javax.swing.JComboBox<Filme> comboFilmes;
+    private javax.swing.JLabel labelDuracao;
+    private javax.swing.JLabel labelFilme;
+    private javax.swing.JLabel labelGenero;
+    private javax.swing.JLabel labelMenorIdade;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JRadioButton opcao10;
+    private javax.swing.JRadioButton opcao12;
+    private javax.swing.JRadioButton opcao14;
+    private javax.swing.JRadioButton opcao16;
+    private javax.swing.JRadioButton opcao18;
+    private javax.swing.JRadioButton opcaoLivre;
+    private javax.swing.JFormattedTextField textDuracao;
+    private javax.swing.JTextField textNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,11 @@
  */
 package formularios;
 
+import controladores.Vendedor;
+import PopUps.PopUps;
+import controladores.Filme;
+import controladores.Sala;
+
 /**
  *
  * @author 104869
@@ -14,6 +19,12 @@ public class FormOptionGerente extends javax.swing.JFrame {
     /**
      * Creates new form FormOptionGerente
      */
+    static void start() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormOptionGerente().setVisible(true);
+        });
+    }
+
     public FormOptionGerente() {
         initComponents();
     }
@@ -41,6 +52,7 @@ public class FormOptionGerente extends javax.swing.JFrame {
         botaoListarSala = new javax.swing.JButton();
         botaoVenderIngresso = new javax.swing.JButton();
         botaoLogoff = new javax.swing.JButton();
+        botaoEsvaziarSala = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Opções");
@@ -48,22 +60,67 @@ public class FormOptionGerente extends javax.swing.JFrame {
 
         botaoCadastrarFunc.setText("Cadastrar Funcionário");
         botaoCadastrarFunc.setPreferredSize(new java.awt.Dimension(100, 40));
+        botaoCadastrarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarFuncActionPerformed(evt);
+            }
+        });
 
         botaoAlterarFunc.setText("Modificar Funcionário");
+        botaoAlterarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarFuncActionPerformed(evt);
+            }
+        });
 
         botaoExcluirFunc.setText("Excluir Funcionário");
+        botaoExcluirFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirFuncActionPerformed(evt);
+            }
+        });
 
         botaoListarFunc.setText("Listar Funcionários");
+        botaoListarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListarFuncActionPerformed(evt);
+            }
+        });
 
         botaoCadastrarFilm.setText("Cadastrar Filme");
+        botaoCadastrarFilm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarFilmActionPerformed(evt);
+            }
+        });
 
         botaoAlterarFilm.setText("Modificar Filme");
+        botaoAlterarFilm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarFilmActionPerformed(evt);
+            }
+        });
 
         botaoExcluirFilm.setText("ExcluirFilme");
+        botaoExcluirFilm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirFilmActionPerformed(evt);
+            }
+        });
 
         botaoListarFilm.setText("Listar Filmes");
+        botaoListarFilm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListarFilmActionPerformed(evt);
+            }
+        });
 
         botaoCadastrarSala.setText("Cadastrar Sala");
+        botaoCadastrarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarSalaActionPerformed(evt);
+            }
+        });
 
         botaoAlterarSala.setText("Modificar Sala");
         botaoAlterarSala.setActionCommand("");
@@ -74,12 +131,39 @@ public class FormOptionGerente extends javax.swing.JFrame {
         });
 
         botaoExcluirSala.setText("Excluir Sala");
+        botaoExcluirSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirSalaActionPerformed(evt);
+            }
+        });
 
         botaoListarSala.setText("Listar Salas");
+        botaoListarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListarSalaActionPerformed(evt);
+            }
+        });
 
         botaoVenderIngresso.setText("Vender Ingresso");
+        botaoVenderIngresso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVenderIngressoActionPerformed(evt);
+            }
+        });
 
         botaoLogoff.setText("Logoff");
+        botaoLogoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLogoffActionPerformed(evt);
+            }
+        });
+
+        botaoEsvaziarSala.setText("Esvaziar Sala");
+        botaoEsvaziarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEsvaziarSalaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,21 +175,22 @@ public class FormOptionGerente extends javax.swing.JFrame {
                     .addComponent(botaoCadastrarFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botaoAlterarFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(botaoExcluirFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoListarFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botaoListarFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoVenderIngresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoLogoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoVenderIngresso, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(botaoListarFilm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botaoExcluirFilm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botaoAlterarFilm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoCadastrarFilm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botaoCadastrarFilm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCadastrarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoAlterarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoExcluirSala, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoListarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botaoCadastrarSala, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(botaoAlterarSala, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(botaoExcluirSala, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(botaoListarSala, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(botaoEsvaziarSala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(162, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,11 +216,12 @@ public class FormOptionGerente extends javax.swing.JFrame {
                     .addComponent(botaoListarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoListarFilm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoListarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(botaoVenderIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(botaoLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoVenderIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEsvaziarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(167, 167, 167))
         );
 
         pack();
@@ -143,8 +229,141 @@ public class FormOptionGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAlterarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarSalaActionPerformed
-        // TODO add your handling code here:
+        Sala s = new Sala();
+        if (s.getSalas().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos uma sala cadastrada para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormAlterarSala.start();
+        }
     }//GEN-LAST:event_botaoAlterarSalaActionPerformed
+
+    private void botaoCadastrarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarFuncActionPerformed
+        this.dispose();
+        FormCadastroFunc.start();
+    }//GEN-LAST:event_botaoCadastrarFuncActionPerformed
+
+    private void botaoCadastrarFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarFilmActionPerformed
+        this.dispose();
+        FormCadastroFilm.start();
+    }//GEN-LAST:event_botaoCadastrarFilmActionPerformed
+
+    private void botaoCadastrarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarSalaActionPerformed
+        Filme f = new Filme();
+        if (f.getFilmes().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos um filme cadastrado para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormCadastroSala.start();
+        }
+
+    }//GEN-LAST:event_botaoCadastrarSalaActionPerformed
+
+    private void botaoVenderIngressoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVenderIngressoActionPerformed
+        Sala s = new Sala();
+        if (s.getSalas().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos uma sala cadastrada para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormGerenteVendaIngresso.start();
+        }
+    }//GEN-LAST:event_botaoVenderIngressoActionPerformed
+
+    private void botaoLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoffActionPerformed
+        this.dispose();
+        FormLogin fl = new FormLogin();
+        fl.setVisible(true);
+    }//GEN-LAST:event_botaoLogoffActionPerformed
+
+    private void botaoAlterarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarFuncActionPerformed
+        Vendedor v = new Vendedor();
+        if (v.getVendedores().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos um funcionário cadastrado para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormAlterarFunc.start();
+        }
+    }//GEN-LAST:event_botaoAlterarFuncActionPerformed
+
+    private void botaoAlterarFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarFilmActionPerformed
+        Filme f = new Filme();
+        if (f.getFilmes().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos um filme cadastrado para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormAlterarFilme.start();
+        }
+    }//GEN-LAST:event_botaoAlterarFilmActionPerformed
+
+    private void botaoExcluirFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirFuncActionPerformed
+        Vendedor v = new Vendedor();
+        if (v.getVendedores().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos um funcionário cadastrado para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormExcluirFunc.start();
+        }
+    }//GEN-LAST:event_botaoExcluirFuncActionPerformed
+
+    private void botaoExcluirFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirFilmActionPerformed
+        Filme f = new Filme();
+        if (f.getFilmes().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos um filme cadastrado para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormExcluirFilm.start();
+        }
+    }//GEN-LAST:event_botaoExcluirFilmActionPerformed
+
+    private void botaoExcluirSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirSalaActionPerformed
+        Sala s = new Sala();
+        if (s.getSalas().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos uma sala cadastrada para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormAlterarSala.start();
+        }
+    }//GEN-LAST:event_botaoExcluirSalaActionPerformed
+
+    private void botaoListarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarFuncActionPerformed
+        Vendedor v = new Vendedor();
+        if (v.getVendedores().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Não há funcionários cadastrados!", this);
+        } else {
+            this.dispose();
+            FormListarFunc.start();
+        }
+    }//GEN-LAST:event_botaoListarFuncActionPerformed
+
+    private void botaoListarFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarFilmActionPerformed
+        Filme f = new Filme();
+        if (f.getFilmes().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Não há funcionários cadastrados!", this);
+        } else {
+            this.dispose();
+            FormListarFilm.start();
+        }
+    }//GEN-LAST:event_botaoListarFilmActionPerformed
+
+    private void botaoListarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarSalaActionPerformed
+        Sala s = new Sala();
+        if (s.getSalas().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Não há funcionários cadastrados!", this);
+        } else {
+            this.dispose();
+            FormListarSala.start();
+        }
+    }//GEN-LAST:event_botaoListarSalaActionPerformed
+
+    private void botaoEsvaziarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEsvaziarSalaActionPerformed
+        Sala s = new Sala();
+        if (s.getSalas().isEmpty()) {
+            PopUps.displayErrorMessageJOP("Você precisa ter ao menos uma sala cadastrada para usar essa função!", this);
+        } else {
+            this.dispose();
+            FormEsvaziarSalaGerente.start();
+        }
+    }//GEN-LAST:event_botaoEsvaziarSalaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +390,11 @@ public class FormOptionGerente extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FormOptionGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
+
         //</editor-fold>
 
-        /*Create and display the fbotao  */     java.awt.EventQueue.invokeLater(new Runnable() {
+        /*Create and display the fbotao  */ java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FormOptionGerente().setVisible(true);
             }
@@ -187,6 +408,7 @@ public class FormOptionGerente extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrarFilm;
     private javax.swing.JButton botaoCadastrarFunc;
     private javax.swing.JButton botaoCadastrarSala;
+    private javax.swing.JButton botaoEsvaziarSala;
     private javax.swing.JButton botaoExcluirFilm;
     private javax.swing.JButton botaoExcluirFunc;
     private javax.swing.JButton botaoExcluirSala;
